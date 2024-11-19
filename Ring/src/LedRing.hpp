@@ -28,7 +28,7 @@ public:
   bool switchLed(int id) {
     const auto led = static_cast<uint16_t>(id);
     if (leds[led] == true) {
-        leds[led] = '0';
+        leds[led] = false;
         strip.setPixelColor(led, strip.Color(0, 0, 0));
         strip.show();
         return false;

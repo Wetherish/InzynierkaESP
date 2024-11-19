@@ -17,8 +17,8 @@ DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
 
 const char *ssid = "Koziolki";
 const char *password = "xxun7mZajccm";
-const char *mqtt_server = "192.168.0.157";
-const char *mqtt_username = "user1";
+const char *mqtt_server = "192.168.0.45";
+const char *mqtt_username = "buttons";
 const char *mqtt_password = "lokomotywa";
 
 WiFiClient espClient;
@@ -106,7 +106,6 @@ void loop()
   if (now - lastMsg > 2000)
   {
     lastMsg = now;
-    // client.publish("outTopic", msg);
     if (!(isnan(temperature_C) || isnan(humi)))
     {    
       snprintf(msg, MSG_BUFFER_SIZE, "%f", humi);

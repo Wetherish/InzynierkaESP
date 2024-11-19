@@ -39,7 +39,7 @@ public:
         client.setCallback(callback);
         while (!client.connected())
         {
-            String client_id = "esp32-client-";
+            String client_id = "LedRing";
             client_id += String(WiFi.macAddress());
             Serial.printf("The client %s connects to the public MQTT broker\n", client_id.c_str());
             if (client.connect(client_id.c_str(), mqtt_username, mqtt_password))
@@ -64,11 +64,9 @@ public:
         while (!client.connected())
         {
             Serial.print("Attempting MQTT connection...");
-            if (client.connect("arduinoClient"))
+            if (client.connect("LedRing"))
             {
                 Serial.println("connected");
-                client.publish("outTopic", "hello world");
-                client.subscribe("inTopic");
             }
             else
             {
